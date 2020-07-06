@@ -5,15 +5,20 @@
  */
 package calculadora;
 
+import javax.swing.JTextArea;
 import liststring.PileString;
 import liststring.QueueString;
 
 public class Postfix {
+    JTextArea area;
+    public Postfix(JTextArea area){
+        this.area=area;
+    }
 
     public QueueString toPostfix(String infix) {
 
         infix += ')';
-        QueueString postfix = new QueueString();
+        QueueString postfix = new QueueString(area);
         PileString temp = new PileString();
         String number = "";
         

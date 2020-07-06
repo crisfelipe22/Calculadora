@@ -5,12 +5,16 @@
  */
 package liststring;
 
+import javax.swing.JTextArea;
+
 public class QueueString {
 
     private NodeString head;
+    JTextArea area;
 
-    public QueueString() {
+    public QueueString(JTextArea area) {
         head = null;
+        this.area=area;
     }
 
     public NodeString add(String data) {
@@ -50,12 +54,14 @@ public class QueueString {
         NodeString q = head;
 
         if (q != null) {
-            do {
+            area.append("Postfijo: ");
+            do {  
+                area.append(q.getData() + " ");
                 System.out.print(q.getData() + " ");
                 q = q.getNext();
             } while (q != null);
         }
-
+        area.append("\n");
         System.out.println();
     }
 
